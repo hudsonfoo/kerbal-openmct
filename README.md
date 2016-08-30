@@ -9,7 +9,7 @@ Integrate Telemachus telemetry data into NASA's Open MCT.
 * [Getting Started](#getting-started)
 * [System Requirements](#system-requirements)
 * [Disclaimer](#disclaimer)
-* [Updates](#updates)
+* [Contributing](#contributing)
 * [Thanks](#thanks)
 
 ## Getting Started
