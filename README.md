@@ -128,7 +128,6 @@ define([
     };
 });
 ```
-
 5. Open Kerbal Space Program and assemble a ship
 
 6. Put your assembled ship on the launch pad
