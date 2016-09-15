@@ -625,8 +625,8 @@
           "type": "float"
         },
         {
-          "name": "r.resource[IntakeAir",
-          "identifier": "r.resource[IntakeAir",
+          "name": "r.resource[IntakeAir]",
+          "identifier": "r.resource[IntakeAir]",
           "units": "None",
           "type": "float"
         }
