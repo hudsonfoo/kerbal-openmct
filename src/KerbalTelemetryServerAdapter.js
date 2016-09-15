@@ -19,7 +19,6 @@ define(
                             return param + "=" + param;
                         }, {}).join("&");
 
-                        console.log(paramStr);
                         return apiUrl + "%3F" + encodeURIComponent(paramStr);
                     })()
                 }).then(function(message) {
