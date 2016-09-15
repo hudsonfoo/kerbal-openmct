@@ -68,7 +68,7 @@ define([
                 {
                     "key": "KERBAL_HTTP_API_URL",
                     "priority": "fallback",
-                    "value": "/proxyUrl?url=http://localhost:8085/telemachus/datalink"
+                    "value": "/proxyUrl?url=" + encodeURIComponent("http://localhost:8085/telemachus/datalink")
                 },
                 {
                     "key": "DEFAULT_TIME_FORMAT",

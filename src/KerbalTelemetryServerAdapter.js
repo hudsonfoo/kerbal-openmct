@@ -14,11 +14,14 @@ define(
             function pollApi () {
                 $http({
                     method: 'GET',
-                    url: apiUrl,
-                    params: params.reduce(function(result, param) {
-                        result[param] = param;
-                        return result;
-                    }, {})
+                    url: (function() {
+                        var paramStr = params.map(function(param) {
+                            return param + "=" + param;
+                        }, {}).join("&");
+
+                        console.log(paramStr);
+                        return apiUrl + "%3F" + encodeURIComponent(paramStr);
+                    })()
                 }).then(function(message) {
                     for (var id in message.data) {
                         // Store telemetry data in the history
