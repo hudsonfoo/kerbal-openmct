@@ -10,6 +10,7 @@ define(
                     return data.length;
                 },
                 getDomainValue: function (index, key) {
+                    if (!key) { key = 'timestamp'; }
                     return (data[index] || {})[key];
                 },
                 getRangeValue: function (index) {
