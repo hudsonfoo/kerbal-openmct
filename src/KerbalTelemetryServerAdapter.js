@@ -8,6 +8,7 @@ define(
         function KerbalTelemetryServerAdapter($q, $http, $interval, apiUrl) {
             var listeners = [],
                 histories = {},
+                greatestTimestamp = 0,
                 params = [],
                 dictionary = $q.defer();
 
@@ -22,6 +23,11 @@ define(
                         return apiUrl + "%3F" + encodeURIComponent(paramStr);
                     })()
                 }).then(function(message) {
+                    var timestamp = message.data['t.universalTime'] * 1000;
+                    if (timestamp < greatestTimestamp) {
+                        histories = {};
+                    }
+                    greatestTimestamp = timestamp;
                     for (var id in message.data) {
                         // Store telemetry data in the history
                         histories[id] = histories[id] || {
@@ -31,7 +37,7 @@ define(
                             };
 
                         histories[id]['value'].push({
-                            timestamp: message.data['t.universalTime']*1000,
+                            timestamp: timestamp,
                             value: message.data[id]
                         });
 
@@ -40,7 +46,7 @@ define(
                             listener({
                                 id: id,
                                 value: {
-                                    timestamp: message.data['t.universalTime']*1000,
+                                    timestamp: timestamp,
                                     value: message.data[id]
                                 }
                             });
