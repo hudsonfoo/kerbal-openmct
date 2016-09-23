@@ -42,6 +42,11 @@ define(
                                 name: "Value",
                                 units: measurement.units,
                                 format: format
+                            }],
+                            domains: [{
+                                key: "timestamp",
+                                name: "Kerbal Time",
+                                format: "number"
                             }]
                         }
                     };
